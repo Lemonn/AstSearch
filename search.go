@@ -4,8 +4,8 @@ import "go/ast"
 
 // FoundNodes holds the information for each found node
 type FoundNodes struct {
-	node    ast.Node
-	parents []ast.Node
+	Node    ast.Node
+	Parents []ast.Node
 }
 
 // SearchNodes Searches the Ast-tree. The search function decides what's a match. foundNodes holds all matches including
@@ -19,8 +19,8 @@ func SearchNodes(decl ast.Node, foundNodes *[]*FoundNodes, parents []ast.Node, s
 	}
 	if searchFunction(decl, parents, completed) {
 		*foundNodes = append(*foundNodes, &FoundNodes{
-			node:    decl,
-			parents: parents,
+			Node:    decl,
+			Parents: parents,
 		})
 	}
 	if *completed {
